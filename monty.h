@@ -52,6 +52,7 @@ typedef struct instruction_s
 void no_of_argc(int ac);
 int _isdigit(char *str);
 void free_list(stack_t *stack);
+int _istag(char *str);
 
 /* opcode Functions */
 
@@ -63,8 +64,17 @@ void nop(stack_t **stack, unsigned int __attribute__((__unused__))line_number);
 stack_t *push(stack_t **stack, int num);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int __attribute__
+((__unused__))line_number);
 
 /* interpreting functions */
+
 int find_code(char *cmd, stack_t **stack, unsigned int line_number);
 
 #endif

@@ -22,6 +22,12 @@ int find_code(char *cmd, stack_t **stack, unsigned int line_number)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"sub", sub},
+		{"mul", mul},
+		{"div", divide},
+		{"mod", mod},
+		{"pstr", pstr},
+		{"pchar", pchar},
 		{"nop", nop},
 		{NULL, NULL}
 		};
