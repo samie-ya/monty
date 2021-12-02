@@ -1,1 +1,2 @@
-This are the projects for Monty repository.
+Repostitory
+Authors Moti_Dawit && Samra_Barnabas
