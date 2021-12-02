@@ -60,3 +60,26 @@ int _isdigit(char *str)
 	}
 	return (0);
 }
+
+/**
+* _istag - to check if there is a hashtag
+*
+* @str: string to be checked
+*
+* Return: 1 if found else 0
+*/
+
+int _istag(char *str)
+{
+	int i;
+
+	if (str == NULL)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '#')
+			return (1);
+	}
+	return (0);
+}
