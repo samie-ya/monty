@@ -76,7 +76,7 @@ void pstr(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
 	while (head != NULL)
 	{
 		if ((head->n <= 0 || head->n > 127))
-			break;
+			dprintf(STDOUT_FILENO, "\n");
 		dprintf(STDOUT_FILENO, "%c", head->n);
 		head = head->next;
 	}
