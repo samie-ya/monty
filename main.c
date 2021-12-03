@@ -37,13 +37,18 @@ int find_code(char *cmd, stack_t **stack, unsigned int line_number)
 		if (strcmp(code[i].opcode, cmd) == 0)
 		{
 			code[i].f(stack, line_number);
-			return (1);
+			break;
 		}
 	i++;
 	}
-	dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, cmd);
-	exit(EXIT_FAILURE);
+	if (code[i].opcode == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, cmd);
+		exit(EXIT_FAILURE);
+	}
+	return (0);
 }
+
 
 /**
 * main - function to open a file and read and interprete
@@ -72,8 +77,8 @@ int main(int ac, char **av)
 	while ((getline(&line, &n, ptr)) != -1)
 	{
 		line_number++;
-		cmd = strtok(line, "\n\t\r ");
-		value = strtok(NULL, "\n\t\r ");
+		cmd = strtok(line, " \n\t");
+		value = strtok(NULL, " \n\t");
 		if (cmd == NULL || cmd[0] == '#')
 			continue;
 		else if (_isdigit(value) == 1 && strcmp("push", cmd) == 0)
