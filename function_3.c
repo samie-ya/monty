@@ -47,15 +47,15 @@ void pchar(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't pchar, stack empty\n", line_number);
+		dprintf(2, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (head->n < 0 || head->n > 256)
+	if (head->n < 0 || head->n > 127)
 	{
 		dprintf(2, "L%d: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	dprintf(STDOUT_FILENO, "%c\n", head->n);
+	dprintf(1, "%c\n", head->n);
 }
 
 /**
