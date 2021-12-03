@@ -1,1 +1,2 @@
-Creating a monty interpreter
+Repostitory for the Monty project file  
+Authors Moti_Dawit && Samra_Barnabas
