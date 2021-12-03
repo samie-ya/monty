@@ -73,12 +73,12 @@ void pstr(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
 {
 	stack_t *head = *stack;
 
-	while (*stack != NULL)
+	while (head != NULL)
 	{
-		if ((head->n <= 0 || head->n > 256))
+		if ((head->n <= 0 || head->n > 127))
 			break;
 		dprintf(STDOUT_FILENO, "%c", head->n);
-	head = head->next;
+		head = head->next;
 	}
-	dprintf(STDERR_FILENO, "\n");
+	dprintf(STDOUT_FILENO, "\n");
 }
