@@ -4,3 +4,9 @@ push 3
 pall
 add
 pall
+pop
+pall
+pop
+pall
+pop
+pall
