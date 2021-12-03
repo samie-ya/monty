@@ -50,7 +50,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		dprintf(STDERR_FILENO, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (head->n < 0 || head->n > 127)
+	if (head->n < 0 || head->n > 256)
 	{
 		dprintf(2, "L%d: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
