@@ -80,7 +80,7 @@ int main(int ac, char **av)
 			push(&stack, atoi(value));
 		else if (strcmp("push", cmd) != 0)
 			find_code(cmd, &stack, line_number);
-		else if (_isdigit(value) == 0)
+		else if (_isdigit(value) == 0 || value == NULL)
 		{
 			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
