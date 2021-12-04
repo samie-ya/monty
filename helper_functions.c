@@ -47,16 +47,36 @@ void free_list(stack_t *stack)
 
 int _isdigit(char *str)
 {
-	int i = 0;
+	int i;
 
 	if (str == NULL)
 		return (0);
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] >= '0' && str[i] <= '9')
-		{
 			return (1);
-		}
+	}
+	return (0);
+}
+
+/**
+* is_not_digit - checks if str contains non digit values
+*
+* @str: the string to be checked
+*
+* Return: 1 if found
+*/
+
+int is_not_digit(char *str)
+{
+	int i;
+
+	if (str == NULL)
+		return (0);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
 	}
 	return (0);
 }

@@ -9,7 +9,7 @@
 *
 * @line_number: line number in byte code
 *
-* Return: 1 if found
+* Return: Always 0
 */
 
 int find_code(char *cmd, stack_t **stack, unsigned int line_number)
@@ -49,7 +49,6 @@ int find_code(char *cmd, stack_t **stack, unsigned int line_number)
 	return (0);
 }
 
-
 /**
 * main - function to open a file and read and interprete
 *
@@ -59,6 +58,7 @@ int find_code(char *cmd, stack_t **stack, unsigned int line_number)
 *
 * Return: Always 0
 */
+
 int main(int ac, char **av)
 {
 	FILE *ptr;
@@ -85,7 +85,7 @@ int main(int ac, char **av)
 			push(&stack, atoi(value));
 		else if (strcmp("push", cmd) != 0)
 			find_code(cmd, &stack, line_number);
-		else if (_isdigit(value) == 0 || value == NULL)
+		else if (is_not_digit(value) == 1 || value == NULL)
 		{
 			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);

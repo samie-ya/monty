@@ -53,7 +53,7 @@ typedef struct instruction_s
 void no_of_argc(int ac);
 int _isdigit(char *str);
 void free_list(stack_t *stack);
-int _istag(char *str);
+int is_not_digit(char *str);
 
 /* opcode Functions */
 
