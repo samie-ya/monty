@@ -6,9 +6,9 @@ mul
 pall
 pop
 pall
-pop
-pall
 mul
+pall
+pop
 pall
 pop
 pall

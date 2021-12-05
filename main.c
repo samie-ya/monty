@@ -29,6 +29,8 @@ int find_code(char *cmd, stack_t **stack, unsigned int line_number)
 		{"pstr", pstr},
 		{"pchar", pchar},
 		{"nop", nop},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 		};
 	i = 0;
@@ -85,7 +87,7 @@ int main(int ac, char **av)
 			push(&stack, atoi(value));
 		else if (strcmp("push", cmd) != 0)
 			find_code(cmd, &stack, line_number);
-		else if (is_not_digit(value) == 1 || value == NULL)
+		else if (value == NULL || (is_not_digit(value) == 1))
 		{
 			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);

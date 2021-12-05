@@ -82,3 +82,57 @@ void pstr(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
 	}
 	dprintf(STDOUT_FILENO, "\n");
 }
+
+/**
+* rotl - rotates the top to the bottom
+*
+* @stack: pointer to the beginning of the stack
+*
+* @line_number: the line number of the bytecode
+*
+* Return: Nothing
+*/
+
+void rotl(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
+{
+	stack_t *head = *stack, *last, *next, *first;
+
+	first = *stack;
+	next = head->next;
+	while (head->next != NULL)
+	{
+		head = head->next;
+	}
+	last = head;
+	last->next = first;
+	first->next = NULL;
+	next->prev = NULL;
+	*stack = next;
+}
+
+/**
+* rotr - bring the bottom element to the top
+*
+* @stack: the pointer to beginning of the stack
+*
+* @line_number: line number of the bytecode
+*
+* Return: Nothing
+*/
+
+void rotr(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
+{
+	stack_t *head = *stack, *last, *prev, *first;
+
+	first = *stack;
+	while (head->next != NULL)
+	{
+		head = head->next;
+	}
+	last = head;
+	prev = last->prev;
+	prev->next = NULL;
+	last->next = first;
+	first->prev = last;
+	*stack = last;
+}
