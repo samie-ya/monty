@@ -97,6 +97,8 @@ void rotl(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
 {
 	stack_t *head = *stack, *last, *next, *first;
 
+	if (head == NULL || head->next == NULL)
+		exit(EXIT_FAILURE);
 	first = *stack;
 	next = head->next;
 	while (head->next != NULL)
@@ -124,6 +126,8 @@ void rotr(stack_t **stack, unsigned int __attribute__((__unused__))line_number)
 {
 	stack_t *head = *stack, *last, *prev, *first;
 
+	if (head == NULL || head->next == NULL)
+		exit(EXIT_FAILURE);
 	first = *stack;
 	while (head->next != NULL)
 	{
